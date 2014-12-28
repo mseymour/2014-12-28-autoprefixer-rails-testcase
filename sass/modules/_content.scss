@@ -1,0 +1,18 @@
+.cta a {
+  font-size: 14pt;
+  text-decoration: none;
+  background-color: $red;
+  color: $body-bg;
+  padding: 6pt;
+  margin: 6pt 0;
+  border-radius: 5pt;
+  &:hover, &:focus {
+    background-color: $orange;
+  }
+//  &:after {
+//    font-family: 'entypo';
+//    vertical-align: middle;
+//    content: '\E766';
+//    margin-left: .5ex;
+//  }
+}

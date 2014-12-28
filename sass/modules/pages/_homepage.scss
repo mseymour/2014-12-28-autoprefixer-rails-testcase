@@ -1,0 +1,32 @@
+.intro {
+  p:first-of-type {
+    line-height: 1.6;
+    font-size: 1.5pc;
+  }
+  > h1 {
+    font-size: 3pc;
+    line-height: 1.1;
+    @include container;
+    .col, .decl { display: block; text-align: center; }
+    .col { @include span(12); }
+    .ident { font-weight: normal; font-family: "Raleway", sans-serif; }
+    .decl { @include full; font-size: 3.5pc; line-height: 1.2; margin-top: 2pc; }
+    img { 
+      margin: 0 auto;
+      display: none;
+    }
+
+    @include breakpoint(820px 640px) {
+      .col { @include span(6); }
+      .col.districts { @include last; }
+      .col.region { @include break; @include span(12); }
+    }
+    @include breakpoint(820px) {
+      .col { @include span(4); line-height: 1; }
+      .col.region { @include last; }
+      img, .text * { display: block; }
+      .num { font-size: 8pc; }
+      .ident { font-size: 2pc; }
+    }
+  }
+}

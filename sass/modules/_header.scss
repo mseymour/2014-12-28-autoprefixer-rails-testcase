@@ -1,0 +1,12 @@
+.masthead { 
+  background-color: $red; 
+  color: #FFF; 
+  @extend %clearfix;
+  .logo, .navigation { display: block; }
+  .logo { float: left; height: 66px; img { max-height: 100%; } }
+  .navigation { float: right;
+    position: relative;
+    //outline: 1px solid $yellow;
+    //&:after { position: absolute; content: ' '; top: 50%; height: 1px; width: 100%; background-color: $yellow; }
+  }
+}

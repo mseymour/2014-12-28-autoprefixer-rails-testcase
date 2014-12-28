@@ -1,0 +1,19 @@
+// Styles for all Members pages (Regional Team, Regional Presidents, etc.)
+
+.clubs { 
+  padding-left: 0;
+  list-style: none;
+  @include container;
+  .club {
+    @include gallery(12);
+    @include breakpoint (320px) {
+      @include gallery(6);
+    }
+    @include breakpoint(820px) {
+      @include gallery(4);
+    }
+    @include breakpoint(1024px) {
+      @include gallery(3);
+    }
+  }
+}

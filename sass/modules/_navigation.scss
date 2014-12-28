@@ -1,0 +1,93 @@
+// TODO: Simplify navigation down to top level and single sub-level menu
+.navigation {
+  a { text-decoration: none; }
+  ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+  }
+  
+  // Top-level navigation
+  > ul {
+    > li { 
+      display: inline-block;
+      position: relative;
+      vertical-align: top;
+      a { 
+        display: block;
+        small { font-size: 8pt; display: block; color: $orange; }
+      }
+      > a { 
+        font: 12pt/1.2 "Raleway", sans-serif;
+        height: 66px;
+        padding: 0 8pt;
+        color: #FFF;
+        text-transform: uppercase;
+        span { display: block; padding-top: 24px; }
+      }
+      &:hover, &:focus {
+        background-color: #FFF;
+        > a { color: $red; }
+      }
+      // Submenu
+      > ul { 
+        display: none;
+        position: absolute;
+        top: 100%;
+        min-width: 150pt;
+        background-color: #FFF;
+        box-shadow: inset 0px 8px 15px -12px mix($red, #000, 75%);
+        // Individual items
+        li a {
+          white-space: nowrap;
+          padding: 8pt;
+          color: $red;
+          &:hover, &:focus {
+            background-color: $red;
+            color: #FFF;
+          }
+        }
+      }
+      &:hover, &:focus { > ul { display: block; } }
+    }
+  }
+}
+
+.nav-toggle {
+  border: 0 none;
+  background-color: #000;
+  position: relative;
+  //display: block;
+  display: none;
+  
+  $target-size: 44px;
+  $bar-height: 2px;
+  width: $target-size;
+  height: $target-size;
+  span {
+    &, &:before, &:after {
+      display: block;
+      position: absolute;
+      width: $target-size * 0.5;
+      height: $bar-height;
+      background-color: #FFF;
+      transform: translate3d(0,0,0);
+      transition: transform 0.66s;
+    }
+    & { 
+      left: ($target-size / 4);
+      top: ($target-size / 2) - ($bar-height / 2);
+    }
+    &:before, &:after { content: ' '; }
+    &:before { top: $target-size / 4.4; }
+    &:after { bottom: $target-size / 4.4; }
+  }
+  
+  // Transform into isosceles triangle
+  &:hover span {
+    &, &:before, &:after { border-radius: 2pt; }
+    &:before { transform: rotate(60deg) translate(-4px,4px); }
+    & { transform: translate(0,-7px); }
+    &:after { transform: rotate(-60deg) translate(-14px,14px); }
+  }
+}
